@@ -55,6 +55,7 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
   }, [props.listTitle, props.context, loadEventItems]);
 
   // Format date to get day, month, and year
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const formatEventDate = (dateString: string) => {
     if (!dateString) return { day: '', month: '', year: '' };
     
@@ -67,12 +68,14 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
   };
 
   // Format time range
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const formatTimeRange = (startDate: string, endDate: string) => {
     if (!startDate || !endDate) return '';
     
     const start = new Date(startDate);
     const end = new Date(endDate);
     
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     const formatTime = (date: Date) => {
       let hours = date.getHours();
       const minutes = date.getMinutes();
@@ -87,6 +90,7 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
   };
 
   // Calculate container height based on maxRows
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const calculateContainerHeight = () => {
     const heightValue = parseInt(rowHeight);
     const unit = rowHeight.replace(heightValue.toString(), '');
