@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "d3b5f4e2-8c4a-4f3b-9f7a-123456789abc",
+  "alias": "IntranetEventWebPart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "preconfiguredEntries": [{
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+    "group": { "default": "Other" },
+    "title": { "default": "Intranet Events" },
+    "description": { "default": "Displays events from a SharePoint list" },
+    "officeFabricIconFontName": "Calendar",
+    "properties": {
+  "listTitle": "Events",
+  "maxRows": 4,
+  "headerBgColor": "#f0f0f0",
+  "headerTextColor": "#000000",
+  "dateBgColor": "#e6e6e6",
+  "dateTextColor": "#000000",
+  "eventBgColor": "#ffffff",
+  "eventBgColorAlt": "#f9f9f9",
+  "eventTextColor": "#000000",
+  "categoryBgColor": "#f0f0f0",
+  "categoryTextColor": "#000000",
+  "properties": {
+  "listTitle": "Events",
+  "maxRows": 4,
+  "rowHeight": "70px",
+  "headerBgColor": "#2c3e50",
+  "headerTextColor": "#ffffff",
+  "dateBgColor": "#e74c3c",
+  "dateTextColor": "#ffffff",
+  "eventBgColor": "#ffffff",
+  "eventBgColorAlt": "#f8f9fa",
+  "eventTextColor": "#333333",
+  "categoryBgColor": "#3498db",
+  "categoryTextColor": "#ffffff",
+  "timeLocationColor": "#666666"
+}
+    }
+  }]
+}

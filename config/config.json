@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "intranet-event-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/intranetEvent/IntranetEventWebPart.js",
+          "manifest": "./src/webparts/intranetEvent/IntranetEventWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "IntranetEventWebPartStrings": "lib/webparts/intranetEvent/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
