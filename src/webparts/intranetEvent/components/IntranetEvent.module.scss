@@ -21,8 +21,7 @@
     
     h1 {
       margin: 0;
-      font-size: clamp(18px, 2vw, 24px);
-      font-weight: 600;
+      
       text-transform: uppercase;
       letter-spacing: 1.5px;
       display: flex;
@@ -32,12 +31,12 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      color: inherit; /* Add this to inherit from parent */
+      color: inherit; 
     }
 
     .headerIcon {
-      font-size: clamp(16px, 1.8vw, 22px);
-      color: inherit; /* Add this to inherit from parent */
+      font-size: inherit;
+      color: inherit; 
     }
   }
 
@@ -162,9 +161,10 @@
     color: inherit; /* Add this to inherit from parent */
   }
 
-  .eventCategory {
+   .eventCategory {
     display: inline-flex;
-    align-items: center;
+    align-items: center;  /* Already centers vertically */
+    justify-content: center; /* Add this for horizontal centering */
     padding: 3px 10px;
     border-radius: 12px;
     font-size: clamp(9px, 1vw, 10px);
@@ -174,9 +174,11 @@
     white-space: nowrap;
     flex-shrink: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    color: inherit; /* Add this to inherit from parent */
+    color: inherit;
+    height: 24px; /* Fixed height for consistent centering */
+    min-height: 24px;
+    line-height: 1; /* Reset line height for better vertical centering */
   }
-
   .eventBottomRow {
     display: flex;
     flex-wrap: wrap;

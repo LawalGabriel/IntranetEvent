@@ -121,20 +121,28 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
     );
   }
 
+
   return (
     <div className={styles.intranetEvent}>
-      {/* Header - IMPORTANT: Apply styles directly to h1 and icon */}
+      {/* Header - Apply ALL styles directly to h1 */}
       <div 
         className={styles.header} 
         style={{ 
           backgroundColor: props.headerBgColor || '#2c3e50',
         }}
       >
-        <h1 style={{ color: props.headerTextColor || '#ffffff' }}>
+        <h1 style={{ 
+          color: props.headerTextColor || '#ffffff',
+          fontSize: props.headerFontSize || 'clamp(18px, 2vw, 24px)',
+          fontWeight: props.headerFontWeight || '600'
+        }}>
           <Icon 
             iconName="Calendar" 
             className={styles.headerIcon}
-            style={{ color: props.headerTextColor || '#ffffff' }}
+            style={{ 
+              color: props.headerTextColor || '#ffffff',
+              fontSize: '0.8em' // Make icon slightly smaller than text
+            }}
           />
           {webPartTitle}
         </h1>
@@ -155,12 +163,11 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
             const { day, month, year } = formatEventDate(item.EventDate);
             const timeRange = formatTimeRange(item.EventDate, item.EndDate);
             
-            // Determine background color based on row index
+            // FIX: Ensure eventBgColorAlt is properly used
             const rowBgColor = index % 2 === 0 
               ? (props.eventBgColor || '#ffffff')
               : (props.eventBgColorAlt || '#f8f9fa');
             
-            // Apply text color directly to elements
             const rowTextColor = props.eventTextColor || '#333333';
             const timeLocationColor = props.timeLocationColor || '#666666';
             
@@ -169,11 +176,11 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
                 key={item.Id} 
                 className={styles.eventItem}
                 style={{
-                  backgroundColor: rowBgColor,
+                  backgroundColor: rowBgColor, // This should now work
                   minHeight: rowHeight
                 }}
               >
-                {/* Date Box with Year */}
+                {/* Date Box */}
                 <div 
                   className={styles.dateBox}
                   style={{
@@ -203,9 +210,8 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
                   </div>
                 </div>
 
-                {/* Event Details - Compact Layout */}
+                {/* Event Details */}
                 <div className={styles.eventDetails}>
-                  {/* Top Row: Title and Category */}
                   <div className={styles.eventTopRow}>
                     <div 
                       className={styles.eventTitle}
@@ -226,7 +232,6 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
                     )}
                   </div>
                   
-                  {/* Bottom Row: Time and Location */}
                   <div className={styles.eventBottomRow}>
                     {(timeRange || item.Location) && (
                       <>
@@ -240,9 +245,7 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
                               className={styles.timeIcon}
                               style={{ color: timeLocationColor }}
                             />
-                            <span>
-                              {timeRange}
-                            </span>
+                            <span>{timeRange}</span>
                           </div>
                         )}
                         
@@ -256,9 +259,7 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
                               className={styles.locationIcon}
                               style={{ color: timeLocationColor }}
                             />
-                            <span>
-                              {item.Location}
-                            </span>
+                            <span>{item.Location}</span>
                           </div>
                         )}
                       </>
@@ -273,5 +274,6 @@ const IntranetEvent: React.FC<IIntranetEventProps> = (props) => {
     </div>
   );
 };
+
 
 export default IntranetEvent;
